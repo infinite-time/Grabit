@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grabit
 {
+    /// <summary>
+    /// This class implements reading the data from the console and storing it.
+    /// </summary>
     class ConsoleReader : IReader {
         int numberOfTestCases = 0;
         IDictionary<int, List<int>> houseNumberToHouseCost = new Dictionary<int, List<int>>();
 
+        /// <summary>
+        /// Read the data and store
+        /// </summary>
         public void ReadAndStore() {
             Console.WriteLine("Please enter the number of test cases (non-zero +ve interger)");
             numberOfTestCases = Int32.Parse(Console.ReadLine());
@@ -33,7 +37,7 @@ namespace Grabit
                 numberOfHouses = 0;
                 costOfHouses.Clear();
             }
-            InputStore inputStore = new InputStore(numberOfTestCases, houseNumberToHouseCost);
+            InputStore.GetInstance().Init(numberOfTestCases, houseNumberToHouseCost);
         }
     }
 }
